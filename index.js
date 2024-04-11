@@ -1,13 +1,14 @@
 import TelegramBot from "node-telegram-bot-api";
 import 'dotenv/config';
 
-const token = process.env.token;
+const token = process.env.TOKEN;
 try {
     const bot = new TelegramBot(token, {polling: true});
 } catch (error) {
     console.log(error);
 }
 console.log(token);
+console.log(process.env);
 
 bot.on('text', async (msg) =>{
     try {

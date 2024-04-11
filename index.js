@@ -10,7 +10,6 @@ bot.on('text', async (msg) =>{
         if(msg.from.username === 'pipisabot' && msg.from.is_bot && !msg.text.includes('Следующая попытка завтра!')){
             await bot.deleteMessage(msg.chat.id, msg.from.id);
         }
-        console.log(msg);
     } catch (error) {
         console.log(error);
         console.log(msg)

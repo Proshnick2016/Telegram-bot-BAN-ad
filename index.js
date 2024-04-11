@@ -3,20 +3,15 @@ import 'dotenv/config';
 
 const token = process.env.TOKEN;
 
-try {
-    const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(token, {polling: true});
 
-    bot.on('text', async (msg) =>{
-        try {
-            if(msg.from.username === 'pipisabot' && msg.from.is_bot && !msg.text.includes('Следующая попытка завтра!')){
-                await bot.deleteMessage(msg.chat.id, msg.from.id);
-            }
-        } catch (error) {
-            console.log(error);
-            console.log(msg)
+bot.on('text', async (msg) =>{
+    try {
+        if(msg.from.username === 'pipisabot' && msg.from.is_bot && !msg.text.includes('Следующая попытка завтра!')){
+            await bot.deleteMessage(msg.chat.id, msg.from.id);
         }
-    });
-    
-} catch (error) {
-    console.log(error);
-}
+    } catch (error) {
+        console.log(error);
+        console.log(msg)
+    }
+});

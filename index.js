@@ -5,9 +5,9 @@ const token = process.env.token;
 try {
     const bot = new TelegramBot(token, {polling: true});
 } catch (error) {
-    console.log(error)
-    console.log(token)
+    console.log(error);
 }
+console.log(token);
 
 bot.on('text', async (msg) =>{
     try {
